@@ -1,4 +1,4 @@
-# PHP POS Print Server
+# PHP POS Print (Local Server)
 
 **A [php](http://php.net/) application for printing POS receipts**
 
