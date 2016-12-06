@@ -1,0 +1,18 @@
+{
+    "name": "tecdiary/ppp",
+    "description": "PHP POS Print Server",
+    "require": {
+        "hoa/websocket": "3.16.10.24",
+        "mike42/escpos-php": "^1.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mian Saleem",
+            "email": "saleem@tecdiary.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Acme\\Esc\\": "lib/"}
+    }
+}
