@@ -3,13 +3,16 @@
     "description": "PHP POS Print Server",
     "require": {
         "hoa/websocket": "3.16.10.24",
-        "mike42/escpos-php": "^1.4"
+        "mike42/escpos-php": "^1.4",
+        "php": ">=5.3.3"
     },
+    "homepage": "https://github.com/Tecdiary/ppp",
     "license": "MIT",
     "authors": [
         {
             "name": "Mian Saleem",
-            "email": "saleem@tecdiary.com"
+            "email": "saleem@tecdiary.com",
+            "homepage": "http://tecdiary.com"
         }
     ],
     "autoload": {
