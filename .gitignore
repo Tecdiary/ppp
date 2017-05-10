@@ -6,6 +6,8 @@ assets/
 /vendor
 
 .phpintel
+.tags
+.tags1
 
 # =========================
 # Ignore list for OS & IDE

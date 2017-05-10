@@ -1,0 +1,52 @@
+html, body {
+    /*background-color: #fff;
+    color: #636b6f;*/
+    /*font-weight: 600;*/
+    /*margin: 0;*/
+    height: 100%;
+}
+
+.wrapper {
+    padding-bottom: 44px;
+    min-height: 100%;
+}
+
+.title {
+    font-size: 48px;
+    line-height: 48px;
+    margin-bottom: 15px;
+    font-weight: 100;
+}
+
+.nav-left .nav-item {
+    font-weight: bold;
+}
+
+#message {
+    margin-top: 10px;
+}
+
+.select.multiple, .select.multiple select {
+    height: auto;
+    padding-right: 0;
+}
+
+.select.multiple select option {
+    padding: 5px 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.select.multiple::after {
+    display: none;
+}
+
+.footer {
+    margin-top: -44px;
+}
+
+.footer, .footer p, .footer a {
+    height: 44px;
+    line-height: 44px;
+    padding: 0;
+}

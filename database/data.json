@@ -1,0 +1,28 @@
+{
+    "printers": [
+        {
+            "id": "c379c8a078877999c88f3bc49699564f",
+            "title": "Bixilon",
+            "type": "windows",
+            "profile": "default",
+            "char_per_line": "42",
+            "path": "Bixilon-SRPII",
+            "ip_address": "",
+            "port": ""
+        },
+        {
+            "id": "875864111b1200cb4ec3978605f1ef54",
+            "title": "XPrinter",
+            "type": "network",
+            "profile": "default",
+            "char_per_line": "42",
+            "path": "",
+            "ip_address": "192.168.1.200",
+            "port": "9100"
+        }
+    ],
+    "receipt_printer": "875864111b1200cb4ec3978605f1ef54",
+    "order_printers": [
+        "875864111b1200cb4ec3978605f1ef54"
+    ]
+}
