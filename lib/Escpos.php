@@ -44,11 +44,11 @@ class Escpos
 
         if (isset($data->logo) && !empty($data->logo)) {
             $file = basename($data->logo);
-            copy($data->logo, 'assets/'.$file);
+            copy($data->logo, 'logos/'.$file);
             $filepath = realpath(dirname(__FILE__));
             $folder_path = dirname($filepath);
             $this->printer->setJustification(Printer::JUSTIFY_CENTER);
-            $logo = EscposImage::load($folder_path.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.$file, false);
+            $logo = EscposImage::load($folder_path.DIRECTORY_SEPARATOR.'logos'.DIRECTORY_SEPARATOR.$file, false);
             $this->printer->bitImage($logo);
         }
 

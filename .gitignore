@@ -2,7 +2,6 @@
 # Package Ignore list
 # =========================
 
-assets/
 /vendor
 
 .phpintel
