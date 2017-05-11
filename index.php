@@ -4,86 +4,34 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Acme\Esc\Escpos;
 
-$websocket = new Hoa\Websocket\Server(
-    new Hoa\Socket\Server('ws://127.0.0.1:6441')
-);
+try {
 
-$websocket->on('open', function (Hoa\Event\Bucket $bucket) {
-    echo '> Connected', "\n";
-    return;
-});
+    echo '> Starting server...', "\n";
 
-$websocket->on('message', function (Hoa\Event\Bucket $bucket) {
-    $data = $bucket->getData();
-    $rdata = json_decode($data['message']);
-    echo '> Received request ', $data['message'], "\n";
+    $websocket = new Hoa\Websocket\Server(
+        new Hoa\Socket\Server('ws://127.0.0.1:6441')
+    );
 
-    if ($rdata->type == 'check-status') {
-
-        $bucket->getSource()->send('Server is running at <br><span>ws://localhost:4661</span>');
+    $websocket->on('open', function (Hoa\Event\Bucket $bucket) {
+        echo '> Connected', "\n";
         return;
+    });
 
-    } elseif ($rdata->type == 'open-cashdrawer') {
+    $websocket->on('message', function (Hoa\Event\Bucket $bucket) {
+        $data = $bucket->getData();
+        $rdata = json_decode($data['message']);
+        echo '> Received request ', $data['message'], "\n";
 
-        echo '> Opening cash drawer ', "\n";
+        if ($rdata->type == 'check-status') {
 
-        if(!isset($rdata->data->printer) || empty($rdata->data->printer)) {
+            $bucket->getSource()->send('Server is running at <br><span>ws://localhost:4661</span>');
+            return;
 
-            $receipt_printer = get_receipt_printer();
-            foreach ($printers as $printer) {
-                if ($printer->id == $receipt_printer) {
-                    echo '> Found receipt printer '.$printer->title, "\n";
-                    try {
-                        $escpos = new Escpos();
-                        $escpos->load($printer);
-                        $escpos->open_drawer();
-                        echo '> Opened', "\n";
-                    } catch (Exception $e) {
-                        echo '> Error occurred, unable to open cash drawer', $e->getMessage(), "\n";
-                    }
-                }
-            }
+        } elseif ($rdata->type == 'open-cashdrawer') {
 
-        } else {
+            echo '> Opening cash drawer ', "\n";
 
-            try {
-                $escpos = new Escpos();
-                $escpos->load($rdata->data->printer);
-                $escpos->open_drawer();
-                echo '> Opened', "\n";
-            } catch (Exception $e) {
-                echo '> Error occurred, unable to open cash drawer', $e->getMessage(), "\n";
-            }
-
-        }
-        return;
-
-    } elseif ($rdata->type == 'print-receipt') {
-
-        echo '> Printing ', "\n";
-        if(!isset($rdata->data->printer) || empty($rdata->data->printer)) {
-
-            echo '> No printer data received, trying local database', "\n";
-            $printers = get_printers();
-
-            if (isset($rdata->data->order) && !empty($rdata->data->order)) {
-
-                $order_printers = get_order_printers ();
-                foreach ($printers as $printer) {
-                    if (in_array($printer->id, $order_printers)) {
-                        echo '> Found order printer '.$printer->title, "\n";
-                        try {
-                            $escpos = new Escpos();
-                            $escpos->load($printer);
-                            $escpos->print($rdata->data);
-                            echo '> Printied', "\n";
-                        } catch (Exception $e) {
-                            echo '> Error occurred, unable to print', "\n", $e->getMessage(), "\n";
-                        }
-                    }
-                }
-
-            } else {
+            if(!isset($rdata->data->printer) || empty($rdata->data->printer)) {
 
                 $receipt_printer = get_receipt_printer();
                 foreach ($printers as $printer) {
@@ -92,44 +40,108 @@ $websocket->on('message', function (Hoa\Event\Bucket $bucket) {
                         try {
                             $escpos = new Escpos();
                             $escpos->load($printer);
-                            $escpos->print($rdata->data);
-                            echo '> Printied', "\n";
+                            $escpos->open_drawer();
+                            echo '> Opened', "\n";
                         } catch (Exception $e) {
-                            echo '> Error occurred, unable to print', "\n", $e->getMessage(), "\n";
+                            echo '> Error occurred, unable to open cash drawer', $e->getMessage(), "\n";
                         }
                     }
                 }
 
+            } else {
+
+                try {
+                    $escpos = new Escpos();
+                    $escpos->load($rdata->data->printer);
+                    $escpos->open_drawer();
+                    echo '> Opened', "\n";
+                } catch (Exception $e) {
+                    echo '> Error occurred, unable to open cash drawer', $e->getMessage(), "\n";
+                }
+
             }
+            return;
+
+        } elseif ($rdata->type == 'print-receipt') {
+
+            echo '> Printing ', "\n";
+            if(!isset($rdata->data->printer) || empty($rdata->data->printer)) {
+
+                echo '> No printer data received, trying local database', "\n";
+                $printers = get_printers();
+
+                if (isset($rdata->data->order) && !empty($rdata->data->order)) {
+
+                    $order_printers = get_order_printers ();
+                    foreach ($printers as $printer) {
+                        if (in_array($printer->id, $order_printers)) {
+                            echo '> Found order printer '.$printer->title, "\n";
+                            try {
+                                $escpos = new Escpos();
+                                $escpos->load($printer);
+                                $escpos->print($rdata->data);
+                                echo '> Printied', "\n";
+                            } catch (Exception $e) {
+                                echo '> Error occurred, unable to print', "\n", $e->getMessage(), "\n";
+                            }
+                        }
+                    }
+
+                } else {
+
+                    $receipt_printer = get_receipt_printer();
+                    foreach ($printers as $printer) {
+                        if ($printer->id == $receipt_printer) {
+                            echo '> Found receipt printer '.$printer->title, "\n";
+                            try {
+                                $escpos = new Escpos();
+                                $escpos->load($printer);
+                                $escpos->print($rdata->data);
+                                echo '> Printied', "\n";
+                            } catch (Exception $e) {
+                                echo '> Error occurred, unable to print', "\n", $e->getMessage(), "\n";
+                            }
+                        }
+                    }
+
+                }
+
+            } else {
+
+                try {
+                    $escpos = new Escpos();
+                    $escpos->load($rdata->data->printer);
+                    $escpos->print($rdata->data);
+                    echo '> Printied', "\n";
+                } catch (Exception $e) {
+                    echo '> Error occurred, unable to print', "\n", $e->getMessage(), "\n";
+                }
+
+            }
+            return;
 
         } else {
-
-            try {
-                $escpos = new Escpos();
-                $escpos->load($rdata->data->printer);
-                $escpos->print($rdata->data);
-                echo '> Printied', "\n";
-            } catch (Exception $e) {
-                echo '> Error occurred, unable to print', "\n", $e->getMessage(), "\n";
-            }
-
+            echo '> Unkonwn type ', $rdata->type, "\n";
         }
-        return;
 
-    } else {
-        echo '> Unkonwn type ', $rdata->type, "\n";
+        return;
+    });
+
+    $websocket->on('close', function (Hoa\Event\Bucket $bucket) {
+        echo '> Disconnected', "\n";
+        return;
+    });
+
+    try {
+        echo '> Server started', "\n";
+        $websocket->run();
+    } catch (Exception $e) {
+        echo '> Error occurred, server stopped. ', "\n", $e->getMessage(), "\n";
     }
 
-    // $bucket->getSource()->send('some message.');
-    return;
-});
-
-$websocket->on('close', function (Hoa\Event\Bucket $bucket) {
-    echo '> Disconnected', "\n";
-    return;
-});
-
-$websocket->run();
+} catch (Exception $e) {
+    echo '> Error: ', $e->getMessage(), "\n";
+}
 
 function read_databsae() {
     $file = file_get_contents('database/data.json');
