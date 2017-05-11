@@ -38,7 +38,7 @@ checkStatus = function() {
     } else {
         $('.status').addClass('is-loading');
         setTimeout(function() {
-            window.location.href = 'index.php';
+            location.reload();
         }, 500);
         return false;
     }
@@ -133,6 +133,7 @@ function printTest(printer_id) {
         var receipt_data = testData();
         var socket_data = {
             'printer': printer,
+            logo: 'logo1.png',
             'text': receipt_data
         };
         socket.send(JSON.stringify({

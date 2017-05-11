@@ -44,3 +44,14 @@ You can access local app from your local web server url or just run `php -S loca
 - Add Printer page `add_printer.php` to add new printer
 
 The local settings will be saved in `dataabse/data.json` file.
+
+**Screenshots**
+
+Index page
+![Index](app/images/default.png)
+
+Printers page
+![Printers](app/images/printers.png)
+
+Add printer page
+![Add Printer](app/images/add_printer.png)
