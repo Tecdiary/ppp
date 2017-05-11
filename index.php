@@ -33,17 +33,18 @@ try {
 
             if(!isset($rdata->data->printer) || empty($rdata->data->printer)) {
 
+                $printers = get_printers();
                 $receipt_printer = get_receipt_printer();
                 foreach ($printers as $printer) {
                     if ($printer->id == $receipt_printer) {
-                        echo '> Found receipt printer '.$printer->title, "\n";
+                        echo '> Trying receipt printer '.$printer->title, "\n";
                         try {
                             $escpos = new Escpos();
                             $escpos->load($printer);
                             $escpos->open_drawer();
                             echo '> Opened', "\n";
                         } catch (Exception $e) {
-                            echo '> Error occurred, unable to open cash drawer', $e->getMessage(), "\n";
+                            echo '> Error occurred, unable to open cash drawer. ', $e->getMessage(), "\n";
                         }
                     }
                 }
@@ -56,7 +57,7 @@ try {
                     $escpos->open_drawer();
                     echo '> Opened', "\n";
                 } catch (Exception $e) {
-                    echo '> Error occurred, unable to open cash drawer', $e->getMessage(), "\n";
+                    echo '> Error occurred, unable to open cash drawer. ', $e->getMessage(), "\n";
                 }
 
             }
@@ -67,7 +68,7 @@ try {
             echo '> Printing ', "\n";
             if(!isset($rdata->data->printer) || empty($rdata->data->printer)) {
 
-                echo '> No printer data received, trying local database', "\n";
+                echo '> No printer data received, trying to get local printers', "\n";
                 $printers = get_printers();
 
                 if (isset($rdata->data->order) && !empty($rdata->data->order)) {
@@ -75,14 +76,14 @@ try {
                     $order_printers = get_order_printers ();
                     foreach ($printers as $printer) {
                         if (in_array($printer->id, $order_printers)) {
-                            echo '> Found order printer '.$printer->title, "\n";
+                            echo '> Trying order printer '.$printer->title, "\n";
                             try {
                                 $escpos = new Escpos();
                                 $escpos->load($printer);
                                 $escpos->print($rdata->data);
                                 echo '> Printied', "\n";
                             } catch (Exception $e) {
-                                echo '> Error occurred, unable to print', "\n", $e->getMessage(), "\n";
+                                echo '> Error occurred, unable to print. ', $e->getMessage(), "\n";
                             }
                         }
                     }
@@ -92,14 +93,14 @@ try {
                     $receipt_printer = get_receipt_printer();
                     foreach ($printers as $printer) {
                         if ($printer->id == $receipt_printer) {
-                            echo '> Found receipt printer '.$printer->title, "\n";
+                            echo '> Trying receipt printer '.$printer->title, "\n";
                             try {
                                 $escpos = new Escpos();
                                 $escpos->load($printer);
                                 $escpos->print($rdata->data);
                                 echo '> Printied', "\n";
                             } catch (Exception $e) {
-                                echo '> Error occurred, unable to print', "\n", $e->getMessage(), "\n";
+                                echo '> Error occurred, unable to print. ', $e->getMessage(), "\n";
                             }
                         }
                     }
@@ -114,7 +115,7 @@ try {
                     $escpos->print($rdata->data);
                     echo '> Printied', "\n";
                 } catch (Exception $e) {
-                    echo '> Error occurred, unable to print', "\n", $e->getMessage(), "\n";
+                    echo '> Error occurred, unable to print. ', $e->getMessage(), "\n";
                 }
 
             }
@@ -136,7 +137,7 @@ try {
         echo '> Server started', "\n";
         $websocket->run();
     } catch (Exception $e) {
-        echo '> Error occurred, server stopped. ', "\n", $e->getMessage(), "\n";
+        echo '> Error occurred, server stopped. ', $e->getMessage(), "\n";
     }
 
 } catch (Exception $e) {
