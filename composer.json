@@ -1,7 +1,7 @@
 {
     "name": "tecdiary/ppp",
     "description": "PHP POS Print Server",
-    "version": "1.0.0-alpha",
+    "version": "1.0.0-beta.3",
     "require": {
         "hoa/websocket": "3.16.10.24",
         "mike42/escpos-php": "^1.4",
