@@ -35,8 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (add_printer($printer)) {
             $error = $title = $type = $profile = $char_per_line = $path = $ip_address = $port = '';
             $message = "Printer successfully added";
-            // header('Location: printers.php');
-            // exit();
         } else {
             $error = 'Action Failed! Please try again';
         }
@@ -86,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         A php application for printing POS receipts.
                     </h2>
                     <a href="#" class="button is-large status" onclick="return checkStatus()">Checking...</a>
-                    <div id="message" style="display:none;"><div class="notification"></div></div>
+                    <div id="message" style="display:none;"><div id="notification" class="notification"></div></div>
                 </div>
             </div>
         </section>
@@ -179,80 +177,82 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     </div>
 
-                    <div class="path field is-horizontal">
-                        <div class="field-label is-normal">
-                            <label class="label" for="path">Path</label>
-                        </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <input type="text" name="path" value="<?= $path; ?>" class="input" id="path">
-                                </div>
-                                <span class="help">
-                                    <strong>For Windows:</strong> (Local USB, Serial or Parallel Printer): Share the printer and enter the share name for your printer here or for Server Message Block (SMB): enter as a smb:// url format such as <code>smb://computername/Receipt Printer</code><br><strong>For Linux:</strong> Parallel as <code>/dev/lp0</code>, USB as <code>/dev/usb/lp1</code>, USB-Serial as <code>/dev/ttyUSB0</code>, Serial as <code>/dev/ttyS0</code><br>                            </span>
-                                </div>
+                    <div class="path">
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label" for="path">Path</label>
                             </div>
-                        </div>
-
-                        <div class="network">
-                            <div class="field is-horizontal">
-                                <div class="field-label is-normal">
-                                    <label class="label" for="ip_address">IP Address</label>
-                                </div>
-                                <div class="field-body">
-                                    <div class="field">
-                                        <div class="control">
-                                            <input type="text" name="ip_address" value="<?= $ip_address; ?>" class="input" id="ip_address">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="field is-horizontal">
-                                <div class="field-label is-normal">
-                                    <label class="label" for="port">Port</label>
-                                </div>
-                                <div class="field-body">
-                                    <div class="field">
-                                        <div class="control">
-                                            <input type="text" name="port" value="<?= !empty($port) ? $port : 9100; ?>" class="input" id="port">
-                                        </div>
-                                        <span class="help">Most printers are open on port <strong>9100</strong></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="field is-horizontal" style="margin-top:10px;">
-                            <div class="field-label"></div>
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control">
-                                        <button type="submit" name="add_printer" class="button is-primary">
-                                            Add Printer
-                                        </button>
+                                        <input type="text" name="path" value="<?= $path; ?>" class="input" id="path">
+                                    </div>
+                                    <span class="help">
+                                        <strong>For Windows:</strong> (Local USB, Serial or Parallel Printer): Share the printer and enter the share name for your printer here or for Server Message Block (SMB): enter as a smb:// url format such as <code>smb://computername/Receipt Printer</code><br><strong>For Linux:</strong> Parallel as <code>/dev/lp0</code>, USB as <code>/dev/usb/lp1</code>, USB-Serial as <code>/dev/ttyUSB0</code>, Serial as <code>/dev/ttyS0</code><br>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="network">
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label" for="ip_address">IP Address</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <input type="text" name="ip_address" value="<?= $ip_address; ?>" class="input" id="ip_address">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                    </form>
-                </div>
-            </section>
-        </div>
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label" for="port">Port</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <input type="text" name="port" value="<?= !empty($port) ? $port : 9100; ?>" class="input" id="port">
+                                    </div>
+                                    <span class="help">Most printers are open on port <strong>9100</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <footer class="footer">
-            <div class="container">
-                <p>
-                    <a class="icon is-pulled-right" href="http://tecdiary.com">
-                        <img src="images/icon.png" alt="">
-                    </a>
-                    &copy; <?= date('Y'); ?> @ tecdiary.com
-                </p>
+                    <div class="field is-horizontal" style="margin-top:10px;">
+                        <div class="field-label"></div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <button type="submit" name="add_printer" class="button is-primary">
+                                        Add Printer
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
             </div>
-        </footer>
+        </section>
+    </div>
 
-        <script type="text/javascript" src="js/jquery.slim.min.js"></script>
-        <script type="text/javascript" src="js/script.js"></script>
-    </body>
-    </html>
+    <footer class="footer">
+        <div class="container">
+            <p>
+                <a class="icon is-pulled-right" href="http://tecdiary.com">
+                    <img src="images/icon.png" alt="">
+                </a>
+                &copy; <?= date('Y'); ?> @ tecdiary.com
+            </p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

@@ -63,7 +63,7 @@ $receipt_printer = get_receipt_printer();
                         A php application for printing POS receipts.
                     </h2>
                     <a href="#" class="button is-large status" onclick="return checkStatus()">Checking...</a>
-                    <div id="message" style="display:none;"><div class="notification"></div></div>
+                    <div id="message" style="display:none;"><div id="notification" class="notification"></div></div>
                 </div>
             </div>
         </section>
@@ -167,7 +167,6 @@ $receipt_printer = get_receipt_printer();
         </div>
     </footer>
 
-    <script type="text/javascript" src="js/jquery.slim.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

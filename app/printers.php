@@ -57,7 +57,7 @@ $printers = get_printers();
                         A php application for printing POS receipts.
                     </h2>
                     <a href="#" class="button is-large status" onclick="return checkStatus()">Checking...</a>
-                    <div id="message" style="display:none;"><div class="notification"></div></div>
+                    <div id="message" style="display:none;"><div id="notification" class="notification"></div></div>
                 </div>
             </div>
         </section>
@@ -130,7 +130,6 @@ $printers = get_printers();
         </div>
     </footer>
 
-    <script type="text/javascript" src="js/jquery.slim.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript">
         var printers = <?= !empty($printers) ? json_encode($printers) : '{}'; ?>;

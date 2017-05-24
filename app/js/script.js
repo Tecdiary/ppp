@@ -2,24 +2,27 @@ var socket = null;
 try {
     socket = new WebSocket('ws://127.0.0.1:6441');
     socket.onopen = function () {
-        var curr = $('.status');
+        var curr = document.getElementsByClassName('status');
         for (var i = 0; i < curr.length; i++) {
             curr[i].classList.add('is-success');
             curr[i].innerHTML = "UP & RUNNING";
         }
+        // document.getElementById('run_server').style.display = 'none';
         return;
     };
     socket.onmessage = function (msg) {
-        $('#message').show();
-        $('#message').find('.notification').addClass('is-info').html(msg.data);
+        var msg_ele = document.getElementById('message');
+        msg_ele.style.display = 'block';
+        document.getElementById('notification').className += ' is-info';
+        document.getElementById('notification').innerHTML = msg.data;
         setTimeout(function () {
-            $('#message').hide();
-            $('#message').find('.notification').text('');
+            msg_ele.style.display = 'none';
+            document.getElementById('notification').innerHTML = '';
         }, 5000)
         return;
     };
     socket.onclose = function () {
-        var curr = $('.status');
+        var curr = document.getElementsByClassName('status');
         for (var i = 0; i < curr.length; i++) {
             curr[i].classList.add('is-danger');
             curr[i].innerHTML = "NOT CONNECTED";
@@ -36,7 +39,10 @@ checkStatus = function() {
         }));
         return false;
     } else {
-        $('.status').addClass('is-loading');
+        var curr = document.getElementsByClassName('status');
+        for (var i = 0; i < curr.length; i++) {
+            curr[i].className += ' is-loading';
+        }
         setTimeout(function() {
             location.reload();
         }, 500);
@@ -44,36 +50,39 @@ checkStatus = function() {
     }
 }
 
-$(document).ready(function() {
-    $('.nav-toggle').click(function() {
-        $(this).toggleClass('is-active');
-        $(this).next('.nav-menu').toggleClass('is-active');
-    });
+document.addEventListener('DOMContentLoaded', function() {
 
-    $('#type').change(function () {
-        var type = $(this).val();
-        if (type == 'network') {
-            $('.network').show();
-            $('.path').hide();
-        } else {
-            $('.network').hide();
-            $('.path').show();
-        }
-    });
-    var type = $('#type').val();
-    if (type == 'network') {
-        $('.network').show();
-        $('.path').hide();
-    } else {
-        $('.network').hide();
-        $('.path').show();
+    if (testp = document.querySelector('.test-print')) {
+        testp.addEventListener('click', function(e) {
+            e.preventDefault();
+            var print_id = this.getAttribute('data-printer-id');
+            printTest(print_id);
+        });
     }
 
-    $(document).on('click', '.test-print', function (e) {
-        e.preventDefault();
-        var print_id = $(this).attr('data-printer-id');
-        printTest(print_id);
-    });
+    if (type_ele = document.getElementById("type")) {
+        if (type_ele) {
+            var type = type_ele.options[type_ele.selectedIndex].value;
+            if (type == 'network') {
+                document.querySelector('.network').style.display = 'block';
+                document.querySelector('.path').style.display = 'none';
+            } else {
+                document.querySelector('.network').style.display = 'none';
+                document.querySelector('.path').style.display = 'block';
+            }
+        }
+
+        type_ele.onchange = function() {
+            var type = this.options[this.selectedIndex].value;
+            if (type == 'network') {
+                document.querySelector('.network').style.display = 'block';
+                document.querySelector('.path').style.display = 'none';
+            } else {
+                document.querySelector('.network').style.display = 'none';
+                document.querySelector('.path').style.display = 'block';
+            }
+        }
+    }
 
 });
 
@@ -125,11 +134,12 @@ function testData() {
 
 function printTest(printer_id) {
     if (socket.readyState == 1) {
-        $.each(printers, function() {
-            if (this.id == printer_id) {
-                printer = this;
+        // $.each(printers, function() {
+        for (var i = 0; i < printers.length; i++) {
+            if (printers[i].id == printer_id) {
+                printer = printers[i];
             }
-        });
+        }
         var receipt_data = testData();
         var socket_data = {
             'printer': printer,
