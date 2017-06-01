@@ -40,7 +40,7 @@ class Escpos
 
     }
 
-    public function print($data) {
+    public function printData($data) {
 
         if (isset($data->logo) && !empty($data->logo)) {
             $file = basename($data->logo);

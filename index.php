@@ -80,7 +80,7 @@ try {
                             try {
                                 $escpos = new Escpos();
                                 $escpos->load($printer);
-                                $escpos->print($rdata->data);
+                                $escpos->printData($rdata->data);
                                 echo '> Printied', "\n";
                             } catch (Exception $e) {
                                 echo '> Error occurred, unable to print. ', $e->getMessage(), "\n";
@@ -97,7 +97,7 @@ try {
                             try {
                                 $escpos = new Escpos();
                                 $escpos->load($printer);
-                                $escpos->print($rdata->data);
+                                $escpos->printData($rdata->data);
                                 echo '> Printied', "\n";
                             } catch (Exception $e) {
                                 echo '> Error occurred, unable to print. ', $e->getMessage(), "\n";
@@ -112,7 +112,7 @@ try {
                 try {
                     $escpos = new Escpos();
                     $escpos->load($rdata->data->printer);
-                    $escpos->print($rdata->data);
+                    $escpos->printData($rdata->data);
                     echo '> Printied', "\n";
                 } catch (Exception $e) {
                     echo '> Error occurred, unable to print. ', $e->getMessage(), "\n";
