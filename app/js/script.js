@@ -134,7 +134,6 @@ function testData() {
 
 function printTest(printer_id) {
     if (socket.readyState == 1) {
-        // $.each(printers, function() {
         for (var i = 0; i < printers.length; i++) {
             if (printers[i].id == printer_id) {
                 printer = printers[i];
