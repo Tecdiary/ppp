@@ -9,7 +9,7 @@
  *  ==============================================================================
  */
 
-namespace Acme\Esc;
+namespace Tec\Ppp;
 
 use Mike42\Escpos\Printer;
 use Mike42\Escpos\EscposImage;

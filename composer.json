@@ -4,7 +4,7 @@
     "require": {
         "hoa/websocket": "3.16.10.24",
         "mike42/escpos-php": "^1.4",
-        "php": ">=5.3.3"
+        "php": ">=5.4.0"
     },
     "homepage": "https://github.com/Tecdiary/ppp",
     "license": "MIT",
@@ -16,6 +16,6 @@
         }
     ],
     "autoload": {
-        "psr-4": {"Acme\\Esc\\": "lib/"}
+        "psr-4": {"Tec\\Ppp\\": "lib/"}
     }
 }

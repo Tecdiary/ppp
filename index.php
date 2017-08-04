@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use Acme\Esc\Escpos;
+use Tec\Ppp\Escpos;
 
 try {
 
