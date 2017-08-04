@@ -45,7 +45,7 @@ html, body {
     margin-top: -44px;
 }
 
-.footer, .footer p, .footer a {
+.footer, .footer p, .footer .icon {
     height: 44px;
     line-height: 44px;
     padding: 0;

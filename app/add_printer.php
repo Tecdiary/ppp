@@ -65,6 +65,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </a>
                         </div>
                         <div class="nav-right">
+                            <?php if (file_exists('./logs.php')) { ?>
+                            <a href="logs.php" class="nav-item">
+                                Logs
+                            </a>
+                            <?php } ?>
                             <a href="printers.php" class="nav-item">
                                 Printers
                             </a>
@@ -245,9 +250,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <footer class="footer">
         <div class="container">
             <p>
-                <a class="icon is-pulled-right" href="http://tecdiary.com">
+                <span class="icon is-pulled-right">
                     <img src="images/icon.png" alt="">
-                </a>
+                </span>
                 &copy; <?= date('Y'); ?> @ tecdiary.com
             </p>
         </div>
