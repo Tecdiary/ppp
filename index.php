@@ -33,20 +33,15 @@ try {
 
             if(!isset($rdata->data->printer) || empty($rdata->data->printer)) {
 
-                $printers = get_printers();
                 $receipt_printer = get_receipt_printer();
-                foreach ($printers as $printer) {
-                    if ($printer->id == $receipt_printer) {
-                        echo '> Trying receipt printer '.$printer->title, "\n";
-                        try {
-                            $escpos = new Escpos();
-                            $escpos->load($printer);
-                            $escpos->open_drawer();
-                            echo '> Opened', "\n";
-                        } catch (Exception $e) {
-                            echo '> Error occurred, unable to open cash drawer. ', $e->getMessage(), "\n";
-                        }
-                    }
+                echo '> Trying receipt printer '.$receipt_printer->title, "\n";
+                try {
+                    $escpos = new Escpos();
+                    $escpos->load($receipt_printer);
+                    $escpos->open_drawer();
+                    echo '> Opened', "\n";
+                } catch (Exception $e) {
+                    echo '> Error occurred, unable to open cash drawer. ', $e->getMessage(), "\n";
                 }
 
             } else {
@@ -62,6 +57,36 @@ try {
 
             }
             return;
+
+        } elseif ($rdata->type == 'print-data') {
+
+            echo '> Printing ', "\n";
+            $rdata->data = json_decode($rdata->data);
+            if(!isset($rdata->data->printer) || empty($rdata->data->printer)) {
+
+                $receipt_printer = get_receipt_printer();
+                echo '> Trying receipt printer '.$receipt_printer->title, "\n";
+                try {
+                    $escpos = new Escpos();
+                    $escpos->load($receipt_printer);
+                    $escpos->print_data($rdata->data);
+                    echo '> Printied', "\n";
+                } catch (Exception $e) {
+                    echo '> Error occurred, unable to print. ', $e->getMessage(), "\n";
+                }
+
+            } else {
+
+                try {
+                    $escpos = new Escpos();
+                    $escpos->load($rdata->data->printer);
+                    $escpos->printData($rdata->data);
+                    echo '> Printied', "\n";
+                } catch (Exception $e) {
+                    echo '> Error occurred, unable to print. ', $e->getMessage(), "\n";
+                }
+
+            }
 
         } elseif ($rdata->type == 'print-receipt') {
 
@@ -91,18 +116,14 @@ try {
                 } else {
 
                     $receipt_printer = get_receipt_printer();
-                    foreach ($printers as $printer) {
-                        if ($printer->id == $receipt_printer) {
-                            echo '> Trying receipt printer '.$printer->title, "\n";
-                            try {
-                                $escpos = new Escpos();
-                                $escpos->load($printer);
-                                $escpos->printData($rdata->data);
-                                echo '> Printied', "\n";
-                            } catch (Exception $e) {
-                                echo '> Error occurred, unable to print. ', $e->getMessage(), "\n";
-                            }
-                        }
+                    echo '> Trying receipt printer '.$receipt_printer->title, "\n";
+                    try {
+                        $escpos = new Escpos();
+                        $escpos->load($receipt_printer);
+                        $escpos->printData($rdata->data);
+                        echo '> Printied', "\n";
+                    } catch (Exception $e) {
+                        echo '> Error occurred, unable to print. ', $e->getMessage(), "\n";
                     }
 
                 }
@@ -156,6 +177,16 @@ function get_printers() {
 }
 
 function get_receipt_printer() {
+    $printers = get_printers();
+    $receipt_printer = get_receipt_printer_id();
+    foreach ($printers as $printer) {
+        if ($printer->id == $receipt_printer) {
+            return $printer;
+        }
+    }
+}
+
+function get_receipt_printer_id() {
     $data = read_databsae();
     return !empty($data->receipt_printer) ? $data->receipt_printer : '';
 }
