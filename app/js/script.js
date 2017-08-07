@@ -52,12 +52,14 @@ checkStatus = function() {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    if (testp = document.querySelector('.test-print')) {
-        testp.addEventListener('click', function(e) {
-            e.preventDefault();
-            var print_id = this.getAttribute('data-printer-id');
-            printTest(print_id);
-        });
+    if (testp = document.querySelectorAll('.test-print')) {
+        for (var i = 0; i < testp.length; i++) {
+            testp[i].addEventListener('click', function (e) {
+                e.preventDefault();
+                var print_id = this.getAttribute('data-printer-id');
+                printTest(print_id);
+            });
+        }
     }
 
     if (type_ele = document.getElementById("type")) {
