@@ -34,8 +34,8 @@ Next time you can simply run `php index.php` in command line OR `server.sh` file
 
 This app runs at port 6441 ( ws://lcoalhost:6441 ) and listen for the print jobs.
 
-## Get Windows Installer
-You can purcahse [PHP POS Print Server (Windows Installer)](http://tecdiary.com/products/php-pos-print-server-windows-installer)
+# Get Windows Installer
+You can purchase [PHP POS Print Server (Windows Installer)](http://tecdiary.com/products/php-pos-print-server-windows-installer)
 
 ### Local printers
 Server will try to use the local printers if no printer has been provided.
