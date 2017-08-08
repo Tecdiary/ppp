@@ -41,6 +41,8 @@ This app runs at port 6441 ( ws://lcoalhost:6441 ) and listen for the print jobs
 
 **[PHP POS Print Server (Windows Installer)](http://tecdiary.com/products/php-pos-print-server-windows-installer) http://tecdiary.com/products/php-pos-print-server-windows-installer** 
 
+**Get 70% discount with offer code `70%off` (for limited time only).**
+
 It comes with logs feature. The server logs can be viewed or downloaded.
 
 The license is not transfer-able, so please don't install it on test server. 
