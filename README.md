@@ -24,13 +24,13 @@ cd ppp
 composer install
 
 # Start server from command line
-php index.php
+php server.php
 
 # Start app for settings
 php -S localhost:8000 -t app/
 ```
 
-Next time you can simply run `php index.php` in command line OR `server.sh` file to start the server.
+Next time you can simply run `php server.php` in command line OR `server.sh` file to start the server.
 
 This app runs at port 6441 ( ws://lcoalhost:6441 ) and listen for the print jobs.
 
@@ -41,7 +41,7 @@ This app runs at port 6441 ( ws://lcoalhost:6441 ) and listen for the print jobs
 
 **[PHP POS Print Server (Windows Installer)](http://tecdiary.com/products/php-pos-print-server-windows-installer) http://tecdiary.com/products/php-pos-print-server-windows-installer** 
 
-**Get 50% discount with offer code `ppp` (for limited time only).**
+**Get 10% discount with offer code `ppp` (for limited time only).**
 
 It comes with logs feature. The server logs can be viewed or downloaded.
 

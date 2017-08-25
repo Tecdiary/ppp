@@ -1,28 +1,38 @@
 {
     "printers": [
         {
-            "id": "c379c8a078877999c88f3bc49699564f",
-            "title": "Bixilon",
-            "type": "windows",
+            "id": "bd820e556583159928498abb88b08c55",
+            "title": "BIXOLON",
+            "type": "linux",
             "profile": "default",
             "char_per_line": "42",
-            "path": "Bixilon-SRPII",
+            "path": "BIXOLON_SRP_350II",
             "ip_address": "",
             "port": ""
         },
         {
-            "id": "875864111b1200cb4ec3978605f1ef54",
+            "id": "b97cacf590510204e67e90d2579409bd",
+            "title": "Bixilon 2",
+            "type": "linux",
+            "profile": "default",
+            "char_per_line": "42",
+            "path": "BIXOLON SRP-350II",
+            "ip_address": "",
+            "port": ""
+        },
+        {
+            "id": "b4895b29a8e969789931a21edcbcc93f",
             "title": "XPrinter",
             "type": "network",
             "profile": "default",
-            "char_per_line": "42",
+            "char_per_line": "45",
             "path": "",
-            "ip_address": "192.168.1.200",
+            "ip_address": "192.168.2.200",
             "port": "9100"
         }
     ],
-    "receipt_printer": "875864111b1200cb4ec3978605f1ef54",
+    "receipt_printer": "b4895b29a8e969789931a21edcbcc93f",
     "order_printers": [
-        "875864111b1200cb4ec3978605f1ef54"
+        "b4895b29a8e969789931a21edcbcc93f"
     ]
 }

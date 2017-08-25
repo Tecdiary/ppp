@@ -4,21 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "211eb26f23435ed6642d594fc0e7f667",
-    "content-hash": "717dd91dbe95a48ba0e15104575a19a3",
+    "content-hash": "01f031d2d08d19478d32657a837ec341",
     "packages": [
         {
             "name": "hoa/consistency",
-            "version": "1.16.03.03",
+            "version": "1.17.05.02",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Consistency.git",
-                "reference": "aa7e30f99aa2ae476f83800d3ad350506eec153b"
+                "reference": "fd7d0adc82410507f332516faf655b6ed22e4c2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Consistency/zipball/aa7e30f99aa2ae476f83800d3ad350506eec153b",
-                "reference": "aa7e30f99aa2ae476f83800d3ad350506eec153b",
+                "url": "https://api.github.com/repos/hoaproject/Consistency/zipball/fd7d0adc82410507f332516faf655b6ed22e4c2f",
+                "reference": "fd7d0adc82410507f332516faf655b6ed22e4c2f",
                 "shasum": ""
             },
             "require": {
@@ -54,11 +53,11 @@
                 },
                 {
                     "name": "Hoa community",
-                    "homepage": "http://hoa-project.net/"
+                    "homepage": "https://hoa-project.net/"
                 }
             ],
             "description": "The Hoa\\Consistency library.",
-            "homepage": "http://hoa-project.net/",
+            "homepage": "https://hoa-project.net/",
             "keywords": [
                 "autoloader",
                 "callable",
@@ -68,20 +67,20 @@
                 "keyword",
                 "library"
             ],
-            "time": "2016-03-03 09:37:24"
+            "time": "2017-05-02T12:18:12+00:00"
         },
         {
             "name": "hoa/event",
-            "version": "1.16.11.19",
+            "version": "1.17.01.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Event.git",
-                "reference": "a2cea8dc46a133517ec322520c3a8bf015ac0cbb"
+                "reference": "6c0060dced212ffa3af0e34bb46624f990b29c54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Event/zipball/a2cea8dc46a133517ec322520c3a8bf015ac0cbb",
-                "reference": "a2cea8dc46a133517ec322520c3a8bf015ac0cbb",
+                "url": "https://api.github.com/repos/hoaproject/Event/zipball/6c0060dced212ffa3af0e34bb46624f990b29c54",
+                "reference": "6c0060dced212ffa3af0e34bb46624f990b29c54",
                 "shasum": ""
             },
             "require": {
@@ -124,20 +123,20 @@
                 "listener",
                 "observer"
             ],
-            "time": "2016-11-19 18:56:37"
+            "time": "2017-01-13T15:30:50+00:00"
         },
         {
             "name": "hoa/exception",
-            "version": "1.16.11.08",
+            "version": "1.17.01.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Exception.git",
-                "reference": "8c961c0e50b57ae6696ef2aea2b161b18f13b201"
+                "reference": "091727d46420a3d7468ef0595651488bfc3a458f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Exception/zipball/8c961c0e50b57ae6696ef2aea2b161b18f13b201",
-                "reference": "8c961c0e50b57ae6696ef2aea2b161b18f13b201",
+                "url": "https://api.github.com/repos/hoaproject/Exception/zipball/091727d46420a3d7468ef0595651488bfc3a458f",
+                "reference": "091727d46420a3d7468ef0595651488bfc3a458f",
                 "shasum": ""
             },
             "require": {
@@ -178,20 +177,20 @@
                 "exception",
                 "library"
             ],
-            "time": "2016-11-08 13:18:12"
+            "time": "2017-01-16T07:53:27+00:00"
         },
         {
             "name": "hoa/http",
-            "version": "1.16.09.06",
+            "version": "1.17.01.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Http.git",
-                "reference": "bba3b3a3168f4e4013614992dd0bdddc05f178f6"
+                "reference": "6d3e114b48a63cf6b9532f9e9607cebade6314ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Http/zipball/bba3b3a3168f4e4013614992dd0bdddc05f178f6",
-                "reference": "bba3b3a3168f4e4013614992dd0bdddc05f178f6",
+                "url": "https://api.github.com/repos/hoaproject/Http/zipball/6d3e114b48a63cf6b9532f9e9607cebade6314ef",
+                "reference": "6d3e114b48a63cf6b9532f9e9607cebade6314ef",
                 "shasum": ""
             },
             "require": {
@@ -221,11 +220,11 @@
                 },
                 {
                     "name": "Hoa community",
-                    "homepage": "http://hoa-project.net/"
+                    "homepage": "https://hoa-project.net/"
                 }
             ],
             "description": "The Hoa\\Http library.",
-            "homepage": "http://hoa-project.net/",
+            "homepage": "https://hoa-project.net/",
             "keywords": [
                 "http",
                 "library",
@@ -246,20 +245,20 @@
                 "rfc7237",
                 "runtime"
             ],
-            "time": "2016-09-06 11:29:40"
+            "time": "2017-01-13T15:28:17+00:00"
         },
         {
             "name": "hoa/protocol",
-            "version": "1.16.07.07",
+            "version": "1.17.01.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Protocol.git",
-                "reference": "28fc998fac9c7364338ec98177fef353e76e4efb"
+                "reference": "5c2cf972151c45f373230da170ea015deecf19e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Protocol/zipball/28fc998fac9c7364338ec98177fef353e76e4efb",
-                "reference": "28fc998fac9c7364338ec98177fef353e76e4efb",
+                "url": "https://api.github.com/repos/hoaproject/Protocol/zipball/5c2cf972151c45f373230da170ea015deecf19e2",
+                "reference": "5c2cf972151c45f373230da170ea015deecf19e2",
                 "shasum": ""
             },
             "require": {
@@ -294,11 +293,11 @@
                 },
                 {
                     "name": "Hoa community",
-                    "homepage": "http://hoa-project.net/"
+                    "homepage": "https://hoa-project.net/"
                 }
             ],
             "description": "The Hoa\\Protocol library.",
-            "homepage": "http://hoa-project.net/",
+            "homepage": "https://hoa-project.net/",
             "keywords": [
                 "library",
                 "protocol",
@@ -306,20 +305,20 @@
                 "stream",
                 "wrapper"
             ],
-            "time": "2016-07-07 21:03:43"
+            "time": "2017-01-14T12:26:10+00:00"
         },
         {
             "name": "hoa/socket",
-            "version": "1.16.07.07",
+            "version": "1.17.05.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Socket.git",
-                "reference": "ccc045b35c9583bf196311233ddd053558830cf5"
+                "reference": "1a43f073d910d0f803de8cc9256779db1027906d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Socket/zipball/ccc045b35c9583bf196311233ddd053558830cf5",
-                "reference": "ccc045b35c9583bf196311233ddd053558830cf5",
+                "url": "https://api.github.com/repos/hoaproject/Socket/zipball/1a43f073d910d0f803de8cc9256779db1027906d",
+                "reference": "1a43f073d910d0f803de8cc9256779db1027906d",
                 "shasum": ""
             },
             "require": {
@@ -352,11 +351,11 @@
                 },
                 {
                     "name": "Hoa community",
-                    "homepage": "http://hoa-project.net/"
+                    "homepage": "https://hoa-project.net/"
                 }
             ],
             "description": "The Hoa\\Socket library.",
-            "homepage": "http://hoa-project.net/",
+            "homepage": "https://hoa-project.net/",
             "keywords": [
                 "Socket",
                 "client",
@@ -366,20 +365,20 @@
                 "tcp",
                 "udp"
             ],
-            "time": "2016-07-07 20:58:09"
+            "time": "2017-05-16T07:55:41+00:00"
         },
         {
             "name": "hoa/stream",
-            "version": "1.16.11.08",
+            "version": "1.17.02.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Stream.git",
-                "reference": "3c29ffee2cf70b6f219c29ee6ed676a1b06c1308"
+                "reference": "3293cfffca2de10525df51436adf88a559151d82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Stream/zipball/3c29ffee2cf70b6f219c29ee6ed676a1b06c1308",
-                "reference": "3c29ffee2cf70b6f219c29ee6ed676a1b06c1308",
+                "url": "https://api.github.com/repos/hoaproject/Stream/zipball/3293cfffca2de10525df51436adf88a559151d82",
+                "reference": "3293cfffca2de10525df51436adf88a559151d82",
                 "shasum": ""
             },
             "require": {
@@ -387,6 +386,9 @@
                 "hoa/event": "~1.0",
                 "hoa/exception": "~1.0",
                 "hoa/protocol": "~1.0"
+            },
+            "require-dev": {
+                "hoa/test": "~2.0"
             },
             "type": "library",
             "extra": {
@@ -427,7 +429,7 @@
                 "stream",
                 "wrapper"
             ],
-            "time": "2016-11-08 13:09:12"
+            "time": "2017-02-21T16:01:06+00:00"
         },
         {
             "name": "hoa/websocket",
@@ -499,28 +501,35 @@
                 "server",
                 "websocket"
             ],
-            "time": "2016-10-24 13:29:50"
+            "time": "2016-10-24T13:29:50+00:00"
         },
         {
             "name": "mike42/escpos-php",
-            "version": "v1.4.2",
+            "version": "v1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mike42/escpos-php.git",
-                "reference": "b3665b96f6e3cf4d64891cd750a12186a1aaaa1f"
+                "reference": "bb24755ef3d444fcc7aa6af70bd8967fc391d760"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mike42/escpos-php/zipball/b3665b96f6e3cf4d64891cd750a12186a1aaaa1f",
-                "reference": "b3665b96f6e3cf4d64891cd750a12186a1aaaa1f",
+                "url": "https://api.github.com/repos/mike42/escpos-php/zipball/bb24755ef3d444fcc7aa6af70bd8967fc391d760",
+                "reference": "bb24755ef3d444fcc7aa6af70bd8967fc391d760",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "ext-mbstring": "*",
+                "php": ">=5.3.9"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.5.*",
+                "guzzlehttp/guzzle": "~3.0|~4.0|~5.0|~6.0",
+                "phpunit/phpunit": "4.8.*",
                 "squizlabs/php_codesniffer": "2.*"
+            },
+            "suggest": {
+                "ext-gd": "Used for image printing if present.",
+                "ext-imagick": "Will be used for image printing if present. Required for PDF printing or use of custom fonts.",
+                "guzzlehttp/guzzle": "Allows the use of the ApiConnector to send print jobs over HTTP."
             },
             "type": "library",
             "autoload": {
@@ -547,7 +556,7 @@
                 "print",
                 "receipt"
             ],
-            "time": "2016-11-03 10:49:26"
+            "time": "2017-05-18T10:29:56+00:00"
         }
     ],
     "packages-dev": [],
@@ -556,6 +565,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.4.0"
+    },
     "platform-dev": []
 }

@@ -1,2 +1,2 @@
 #!/bin/bash
-php index.php
+php server.php

@@ -3,7 +3,8 @@
 # =========================
 
 /vendor
-
+img/
+logos/
 .phpintel
 .tags
 .tags1
