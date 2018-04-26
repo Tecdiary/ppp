@@ -32,7 +32,7 @@ php -S localhost:8000 -t app/
 
 Next time you can simply run `php server.php` in command line OR `server.sh` file to start the server.
 
-This app runs at port 6441 ( ws://lcoalhost:6441 ) and listen for the print jobs.
+This app runs at port 6441 ( ws://localhost:6441 ) and listen for the print jobs.
 
 ***
 # Get Windows Installer
