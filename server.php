@@ -195,7 +195,8 @@ try {
 }
 
 function read_databsae() {
-    $file = file_get_contents('database/data.json');
+    $path = __DIR__ . DIRECTORY_SEPARATOR . 'database' . DIRECTORY_SEPARATOR . 'data.json'
+    $file = file_get_contents($path);
     $data = $file ? json_decode($file) : null;
     return empty($data->printers) ? json_decode(['printers' => [], 'order_printers' => [], 'receipt_printer' => ""]) : $data;
 }
