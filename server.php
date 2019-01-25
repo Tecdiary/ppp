@@ -63,15 +63,33 @@ try {
             echo '> Printing img', "\n";
             if(!isset($data->printer) || empty($data->printer)) {
 
-                $receipt_printer = get_receipt_printer();
-                echo '> Trying receipt printer '.$receipt_printer->title, "\n";
-                try {
-                    $escpos = new Escpos();
-                    $escpos->load($receipt_printer);
-                    $escpos->printImg($rdata->data->text);
-                    echo '> Printied', "\n";
-                } catch (Exception $e) {
-                    echo '> Error occurred, unable to print. ', $e->getMessage(), "\n";
+                if(!isset($rdata->data->order) || empty($rdata->data->order)) {
+                    $printers = get_printers();
+                    $order_printers = get_order_printers ();
+                    foreach ($printers as $printer) {
+                        if (in_array($printer->id, $order_printers)) {
+                            echo '> Trying order printer '.$printer->title, "\n";
+                            try {
+                                $escpos = new Escpos();
+                                $escpos->load($printer);
+                                $escpos->printImg($rdata->data->text);
+                                echo '> Printied', "\n";
+                            } catch (Exception $e) {
+                                echo '> Error occurred, unable to print. ', $e->getMessage(), "\n";
+                            }
+                        }
+                    }
+                } else {
+                    $receipt_printer = get_receipt_printer();
+                    echo '> Trying receipt printer '.$receipt_printer->title, "\n";
+                    try {
+                        $escpos = new Escpos();
+                        $escpos->load($receipt_printer);
+                        $escpos->printImg($rdata->data->text);
+                        echo '> Printied', "\n";
+                    } catch (Exception $e) {
+                        echo '> Error occurred, unable to print. ', $e->getMessage(), "\n";
+                    }
                 }
 
             } else {
